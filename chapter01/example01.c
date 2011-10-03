@@ -4,7 +4,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include "error_handling.h"
+#include "ec.h"
 
 int main(int argc, char **argv)
 {

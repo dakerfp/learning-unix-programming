@@ -3,7 +3,9 @@
  */
 
 #include <stdlib.h>
-#include "global.h"
+#ifndef __cplusplus
+    #include <stdbool.h> /* C99 Only */
+#endif
 
 #define EC_TRY(errors_types) \
     errors_types __ec_errors_type__; \
