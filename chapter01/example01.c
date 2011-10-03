@@ -24,7 +24,7 @@ EC_TRY(enum errors)
 
     return 0;
 
-EC_EXCEPT_BLOCK
+EC_EXCEPT_BGN
     EC_EXCEPT(ArgcError) {
         printf("Wrong arg count: %d\n", argc);
 
@@ -35,5 +35,5 @@ EC_EXCEPT_BLOCK
 
         return -1;
     }
-EC_END
+EC_EXCEPT_END
 }
