@@ -3,6 +3,7 @@
  */
 
 #include <stdlib.h>
+#include <errno.h>
 #ifndef __cplusplus
     #include <stdbool.h> /* C99 Only */
 #endif
