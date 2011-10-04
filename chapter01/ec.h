@@ -21,24 +21,40 @@
     }
 
 #define EC_EQ(a, b) { \
-        if (((a) == (b)))                       \
-            __GOTO_EC__ \
+        errno = 0; \
+        if (((a) == (b))) \
+            __GOTO_EC__;  \
+        if (errno) \
+            __GOTO_EC__; \
     }
 
 #define EC_EQ_E(a, b, error_type) { \
-        if (((a) == (b))) {                   \
+        errno = 0; \
+        if (((a) == (b))) { \
             __ec_errors_type__ = error_type ; \
+            __GOTO_EC__; \
+        } \
+        if (errno) { \
+            __ec_errors_type__ = error_type; \
             __GOTO_EC__; \
         } \
     }
 
 #define EC_NEQ(a, b) { \
-        if ((a) != (b))  \
+        errno = 0; \
+        if ((a) != (b)) \
+            __GOTO_EC__; \
+        if (errno) \
             __GOTO_EC__; \
     }
 
 #define EC_NEQ_E(a, b, error_type) { \
+        errno = 0; \
         if (a != b) { \
+            __ec_errors_type__ = error_type; \
+            __GOTO_EC__; \
+        } \
+        if (errno) { \
             __ec_errors_type__ = error_type; \
             __GOTO_EC__; \
         } \
