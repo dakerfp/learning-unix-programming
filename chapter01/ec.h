@@ -45,8 +45,10 @@
     }
 
 #define EC_NULL(v) EC_EQ((void *) (v), NULL)
+#define EC_NNULL(v) EC_NEQ((void *) (v), NULL)
 
 #define EC_NULL_E(v, error_type) EC_EQ_E((void*) (v), NULL, error_type)
+#define EC_NNULL_E(v, error_type) EC_NEQ_E((void*) (v), NULL, error_type)
 
 #define EC_EXCEPT_BGN \
     __ec_label__: { \
