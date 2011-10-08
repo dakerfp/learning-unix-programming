@@ -4,7 +4,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include "ec.h"
+#include "../lib/ec.h"
 
 int main(int argc, char **argv)
 {
