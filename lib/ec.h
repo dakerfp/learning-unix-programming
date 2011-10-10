@@ -28,6 +28,22 @@
             __GOTO_EC__; \
     }
 
+#define EC_SYSCALL(command) { \
+        errno = 0; \
+        command; \
+        if (errno) \
+            __GOTO_EC__; \
+    }
+
+#define EC_SYSCALL_E(command, error_type) {                    \
+        errno = 0; \
+        command; \
+        if (errno) { \
+            __ec_errors_type__ = error_type; \
+            __GOTO_EC__; \
+        } \
+    }
+
 #define EC_EQ_E(a, b, error_type) { \
         errno = 0; \
         if (((a) == (b))) { \
