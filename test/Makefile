@@ -1,5 +1,12 @@
+INCS=-I../lib
+LIBS=-L../lib -largs
 
-LIBS=-largs
+all: test_args
 
 test_args:
-	gcc -I../lib -L../lib $(LIBS) test_args.c -o test_args
+	gcc -Wall $(INCS) $(LIBS) test_args.c -o test_args
+
+clean:
+	rm -rf *~
+	rm -rf *.o
+	rm test_args

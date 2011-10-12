@@ -2,9 +2,9 @@
 #include <args.h>
 
 bool
-print1(int argc, char **argv)
+print_arg(int argc, char **argv)
 {
-    printf("Print1 %s \n", argv[0]);
+    printf("Print Arg %s \n", argv[0]);
     return true;
 }
 
@@ -43,7 +43,7 @@ struct args_options_scheme args_scheme_example = {
     .default_handler = {
         .option_name = "Default handler",
         .option_argc = 1,
-        .handler = print1,
+        .handler = print_arg,
         .error_message = "Default handler failed"
     }
 };
