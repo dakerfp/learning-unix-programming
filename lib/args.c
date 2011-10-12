@@ -37,7 +37,8 @@ args_handle_options(struct args_options_scheme *options_scheme, int argc, char *
         bool (*handler_function) (int, char**) = option_handler->handler;
 
         // Call handler
-        bool hcall = (*handler_function)(opt_argc, &argv[index]);
+        if (!(*handler_function)(opt_argc, &argv[index]))
+            return false;
 
         index += opt_argc;
     }
