@@ -21,11 +21,8 @@
     }
 
 #define EC_EQ(a, b) { \
-        errno = 0; \
         if (((a) == (b))) \
             __GOTO_EC__;  \
-        if (errno) \
-            __GOTO_EC__; \
     }
 
 #define EC_SYSCALL(command) { \
@@ -57,20 +54,12 @@
     }
 
 #define EC_NEQ(a, b) { \
-        errno = 0; \
         if ((a) != (b)) \
-            __GOTO_EC__; \
-        if (errno) \
             __GOTO_EC__; \
     }
 
 #define EC_NEQ_E(a, b, error_type) { \
-        errno = 0; \
         if (a != b) { \
-            __ec_errors_type__ = error_type; \
-            __GOTO_EC__; \
-        } \
-        if (errno) { \
             __ec_errors_type__ = error_type; \
             __GOTO_EC__; \
         } \
