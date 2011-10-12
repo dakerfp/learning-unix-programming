@@ -1,6 +1,6 @@
 #include "args.h"
 
-char*
+bool
 args_handle_options(struct args_options_scheme *options_scheme, int argc, char **argv)
 {
     int index = 1;
@@ -31,7 +31,7 @@ args_handle_options(struct args_options_scheme *options_scheme, int argc, char *
         // Check if is possible to call
         int opt_argc = option_handler->option_argc;
         if (argc - index < opt_argc) {
-            return option_handler->error_message;
+            return false;
         }
 
         bool (*handler_function) (int, char**) = option_handler->handler;
@@ -43,5 +43,5 @@ args_handle_options(struct args_options_scheme *options_scheme, int argc, char *
         index += opt_argc;
     }
 
-    return NULL;
+    return true;
 }
