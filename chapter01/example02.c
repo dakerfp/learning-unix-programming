@@ -8,7 +8,7 @@ int main(int argc, char **argv)
 {
     enum errors {SysconfError};
 
-EC_TRY(enum errors)
+EC_TRY_E(enum errors)
 
     int pjcontrol;
 

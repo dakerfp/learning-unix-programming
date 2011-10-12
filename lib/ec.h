@@ -8,7 +8,9 @@
     #include <stdbool.h> /* C99 Only */
 #endif
 
-#define EC_TRY(errors_types) \
+#define EC_TRY  bool __ec_handling_error__ = false;
+
+#define EC_TRY_E(errors_types) \
     errors_types __ec_errors_type__; \
     bool __ec_handling_error__ = false;
 
@@ -71,8 +73,7 @@
 #define EC_NULL_E(v, error_type) EC_EQ_E((void*) (v), NULL, error_type)
 #define EC_NNULL_E(v, error_type) EC_NEQ_E((void*) (v), NULL, error_type)
 
-#define EC_EXCEPT \
-    __ec_label__:
+#define EC_EXCEPT  __ec_label__:
 
 #define EC_EXCEPT_BGN \
     __ec_label__: { \

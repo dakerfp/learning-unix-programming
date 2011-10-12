@@ -10,7 +10,7 @@ int main(int argc, char **argv)
 {
     enum errors {ArgcError, MallocError};
 
-EC_TRY(enum errors)
+EC_TRY_E(enum errors)
 
     EC_NEQ_E(argc, 2, ArgcError);
 
