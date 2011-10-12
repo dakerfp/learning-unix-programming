@@ -19,7 +19,7 @@ args_handle_options(struct args_options_scheme *options_scheme, int argc, char *
             }
 
             // If doesn't exist use default handler
-            if (option_handler->option_argc == 0)
+            if (option_handler->handler == NULL)
                 option_handler = &options_scheme->default_handler;
             else
                 index += 1;
