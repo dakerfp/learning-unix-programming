@@ -25,12 +25,12 @@ EC_TRY(enum errors)
     return 0;
 
 EC_EXCEPT_BGN
-    EC_EXCEPT(ArgcError) {
+    EC_CATCH(ArgcError) {
         printf("Wrong arg count: %d\n", argc);
 
         return -1;
     }
-    EC_EXCEPT(MallocError) {
+    EC_CATCH(MallocError) {
         printf("Too long array\n");
 
         return -1;

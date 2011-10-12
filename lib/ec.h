@@ -71,12 +71,15 @@
 #define EC_NULL_E(v, error_type) EC_EQ_E((void*) (v), NULL, error_type)
 #define EC_NNULL_E(v, error_type) EC_NEQ_E((void*) (v), NULL, error_type)
 
+#define EC_EXCEPT \
+    __ec_label__:
+
 #define EC_EXCEPT_BGN \
     __ec_label__: { \
     __ec_handling_error__ = true; \
     switch (__ec_errors_type__) {
 
-#define EC_EXCEPT(error) \
+#define EC_CATCH(error) \
     case error:
 
 #define EC_EXCEPT_END } }

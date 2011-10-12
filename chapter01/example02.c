@@ -20,7 +20,7 @@ EC_TRY(enum errors)
     return 0;
 
 EC_EXCEPT_BGN
-    EC_EXCEPT(SysconfError) {
+    EC_CATCH(SysconfError) {
         printf("Error on _SC_ARG_MAX sysconf reading.");
 
         return -1;
