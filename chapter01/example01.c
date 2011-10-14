@@ -26,7 +26,7 @@ EC_TRY_E(enum errors)
 
 EC_EXCEPT_BGN
     EC_CATCH(ArgcError) {
-		fprintf(stderr, "Wrong arg count: %d\n", argc);
+        fprintf(stderr, "Wrong arg count: %d\n", argc);
 
         return -1;
     }
