@@ -84,9 +84,9 @@
     case error:
 
 #define EC_CATCH_BGN(error) \
-	case error:
+    case error:
 
 #define EC_CATCH_END \
-	break;
+    break;
 
 #define EC_EXCEPT_END } }
