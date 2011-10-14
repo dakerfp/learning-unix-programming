@@ -37,17 +37,17 @@ EC_TRY_E(enum errors)
 
 EC_EXCEPT_BGN
     EC_CATCH(ArgcError) {
-        printf("No support for command-line args\n");
+        fprintf(stderr, "No support for command-line args\n");
 
         return -1;
     }
     EC_CATCH(MallocError) {
-        printf("Memory allocation error\n");
+        fprintf(stderr, "Memory allocation error\n");
 
         return -1;
     }
     EC_CATCH(TimeError) {
-        printf("Maybe you shouldn't know the time\n");
+        fprintf(stderr, "Maybe you shouldn't know the time\n");
 
         return -1;
     }

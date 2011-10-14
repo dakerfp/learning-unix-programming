@@ -21,7 +21,7 @@ EC_TRY_E(enum errors)
 
 EC_EXCEPT_BGN
     EC_CATCH(SysconfError) {
-        printf("Error on _SC_ARG_MAX sysconf reading.");
+        fprintf(stderr, "Error on _SC_ARG_MAX sysconf reading.\n");
 
         return -1;
     }
