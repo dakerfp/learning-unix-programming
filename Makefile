@@ -1,25 +1,23 @@
 
-all: lib test chapter01 chapter02
+all: liball testall chapter01all chapter02all
+	echo "Success"
 
-lib:
-	cd lib && make
+liball:
+	cd lib; make all
 
-test:
-	cd test && make
+testall: liball
+	cd test; make all
 
-chapter01:
-	cd chapter01 && make
+chapter01all: liball
+	cd chapter01; make all
 
-chapter02:
-	cd chapter02 && make
+chapter02all: liball
+	cd chapter02; make all
 
 clean:
-	cd lib && make clean
-	cd ..
-	cd test && make clean
-	cd ..
-	cd chapter01 && make clean
-	cd ..
-	cd chapter02 && make clean
-	cd ..
+	cd lib; make clean
+	cd test; make clean
+	cd chapter01; make clean
+	cd chapter02; make clean
+
 

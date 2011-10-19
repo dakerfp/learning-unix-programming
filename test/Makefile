@@ -9,4 +9,4 @@ test_args:
 clean:
 	rm -rf *~
 	rm -rf *.o
-	rm test_args
+	rm -rf test_args
