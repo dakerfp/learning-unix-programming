@@ -67,6 +67,9 @@
         } \
     }
 
+#define EC_CHECK(v) EC_EQ((v), false)
+#define EC_CHECK_E(v, error_type) EC_EQ_E((v), false, error_type)
+
 #define EC_NULL(v) EC_EQ((void *) (v), NULL)
 #define EC_NNULL(v) EC_NEQ((void *) (v), NULL)
 
